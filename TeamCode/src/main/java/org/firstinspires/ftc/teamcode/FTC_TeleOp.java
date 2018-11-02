@@ -10,9 +10,6 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="FTC_TeleOp", group="Iterative Opmode")
 
-// TODO: Add limit to front motor
-// TODO: Add limit to back motor
-
 public class FTC_TeleOp extends OpMode
 {
     private ElapsedTime runtime = new ElapsedTime();
@@ -133,18 +130,22 @@ public class FTC_TeleOp extends OpMode
         // ------------------ back motor control -------------------
         int armPos = armMotor.getCurrentPosition();
 
-        if (gamepad2.left_stick_y < 0 && armPos > 0)
+        if (gamepad2.left_stick_y < 0 && armPos > 20)
             armMotor.setPower(-0.25);
         else if (gamepad2.left_stick_y > 0 && armPos < 4600)
             armMotor.setPower(0.25);
+        else
+            armMotor.setPower(0);
 
         // ------------------ front motor control -----------------
         int jointPos = jointMotor.getCurrentPosition();
 
-        if (gamepad2.right_stick_y < 0 && jointPos > 0)
-            armMotor.setPower(-0.25);
+        if (gamepad2.right_stick_y < 0 && jointPos > 20)
+            jointMotor.setPower(-0.25);
         else if (gamepad2.right_stick_y > 0 && jointPos < 5400)
-            armMotor.setPower(0.25);
+            jointMotor.setPower(0.25);
+        else
+            jointMotor.setPower(0);
 
         // --------------- collector motor control ----------------
         if (gamepad2.b && !gamepad2.x) {
