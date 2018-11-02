@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yongyangnie/Developer/Robotics/FTC/ftc_teleop_code/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
+            "outputFile": "/Users/yongyangnie/Developer/Robotics/FTC/FTC_2018_Aegis/TeamCode/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml",
             "map": [
                 {
-                    "source": "/Users/yongyangnie/.gradle/caches/transforms-1/files-1.1/RobotCore-release.aar/baa4f6e1b64b9169cad57bc380740aeb/res/values-v11/values-v11.xml",
+                    "source": "/Users/yongyangnie/.gradle/caches/transforms-1/files-1.1/RobotCore-release.aar/4dc47b2f67912f8ed4eae4113e7db46c/res/values-v11/values-v11.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -8,9 +8,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-
 @TeleOp(name="FTC_TeleOp", group="Iterative Opmode")
-//@Disabled
+
+// TODO: Add limit to front motor
+// TODO: Add limit to back motor
 
 public class FTC_TeleOp extends OpMode
 {
@@ -55,7 +56,7 @@ public class FTC_TeleOp extends OpMode
 
         // Init arm motor
         armMotor = hardwareMap.get(DcMotor.class, "back_motor");
-        armMotor.setDirection(DcMotor.Direction.FORWARD);                   // set direction of motor ** double check **
+        armMotor.setDirection(DcMotor.Direction.FORWARD);                   // set direction of motor
         armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);     // set braking behavior
 
         // Init arm joint motor
@@ -88,7 +89,7 @@ public class FTC_TeleOp extends OpMode
     @Override
     public void loop() {
 
-        // -------------------- mecanum driving --------------------
+        // -------------------- Mecanum driving --------------------
         //read input values for driving (Gamepad 1)
         double r = Math.hypot(gamepad1.left_stick_x, gamepad1.left_stick_y);
         double robotAngle = Math.atan2(gamepad1.left_stick_y,gamepad1.left_stick_x) - Math.PI/4;
@@ -106,34 +107,25 @@ public class FTC_TeleOp extends OpMode
         leftBack.setPower(v3);
         rightBack.setPower(v4);
 
-
         // ------------------ mast lift control -------------------
 
-        boolean up = gamepad2.right_bumper;
-        boolean down = gamepad2.left_bumper;
+        boolean up = gamepad1.right_bumper;
+        boolean down = gamepad1.left_bumper;
 
         int liftPos = mastLift.getCurrentPosition();
 
         if (down && !up && liftPos < 0)
-
             mastLift.setPower(1);
-
         else if (up && !down && liftPos > -14000)
-
             mastLift.setPower(-1);
-
         else
-
             mastLift.setPower(0);
 
         // ------------------ dump servo control ------------------
 
-        if (gamepad2.y && dumpPos < 1)
-
+        if (gamepad1.y && dumpPos < 1)
             dumpPos += dumpSpeed;
-
-        else if (gamepad2.a && dumpPos > 0)
-
+        else if (gamepad1.a && dumpPos > 0)
             dumpPos -= dumpSpeed;
 
         dumpServo.setPosition(dumpPos);
@@ -141,21 +133,18 @@ public class FTC_TeleOp extends OpMode
         // ------------------ back motor control -------------------
         int armPos = armMotor.getCurrentPosition();
 
-        double input = gamepad2.left_stick_y;
-        armMotor.setPower(input);
-        // -5160 dumping the stuff out
-        // -1155 lowest position
-        // -2104 ideal picking position
-
-        // implementation...
+        if (gamepad2.left_stick_y < 0 && armPos > 0)
+            armMotor.setPower(-0.25);
+        else if (gamepad2.left_stick_y > 0 && armPos < 4600)
+            armMotor.setPower(0.25);
 
         // ------------------ front motor control -----------------
         int jointPos = jointMotor.getCurrentPosition();
-        jointMotor.setPower(gamepad2.right_stick_y);
-        // implementation...
 
-        // -345 most folded in
-        // 5171 picking position
+        if (gamepad2.right_stick_y < 0 && jointPos > 0)
+            armMotor.setPower(-0.25);
+        else if (gamepad2.right_stick_y > 0 && jointPos < 5400)
+            armMotor.setPower(0.25);
 
         // --------------- collector motor control ----------------
         if (gamepad2.b && !gamepad2.x) {
@@ -165,7 +154,6 @@ public class FTC_TeleOp extends OpMode
         }else{
             collectorMotor.setPower(0);
         }
-        // implementation...
 
         try {
             Thread.sleep(50);
