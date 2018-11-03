@@ -7,55 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6361cf7-1e5c-453c-903b-83195619e911" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/debug-mergeJniLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FtcRobotController/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/35Xrskai6R04JPYY6TIyHuQCJWU=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/CQLqf8iYBtQlnSXD2_awgxPQe6Y=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ECVExvaRfzbqIjOwOwe95hj9hfo=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/PpLK_Gl+djbjKr+1B4nJE55CsDQ=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/WXA9ijU+6B34PzPX7oaDZ7D5idE=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/kONEToUUhkwZRHe956KTLuAS0YE=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/lBQH3T8xsGnNm_0XngDddvFcvcY=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/olaITOIsxYLIgJ5UCtbQQmFGN1M=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/tqMpnyInk12+tDPChJFlwYcClac=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/vr4A2VOGVDjSSgVh2+_1aXmQpEw=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/xM1si0p43aA93zv2VZwC45cASD4=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/yBdIY3V5QFSEIbCFRpbfMnwOShM=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/35Xrskai6R04JPYY6TIyHuQCJWU=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/CQLqf8iYBtQlnSXD2_awgxPQe6Y=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/ECVExvaRfzbqIjOwOwe95hj9hfo=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/PpLK_Gl+djbjKr+1B4nJE55CsDQ=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/WXA9ijU+6B34PzPX7oaDZ7D5idE=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/kONEToUUhkwZRHe956KTLuAS0YE=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/lBQH3T8xsGnNm_0XngDddvFcvcY=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/olaITOIsxYLIgJ5UCtbQQmFGN1M=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/tqMpnyInk12+tDPChJFlwYcClac=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/vr4A2VOGVDjSSgVh2+_1aXmQpEw=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/xM1si0p43aA93zv2VZwC45cASD4=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/yBdIY3V5QFSEIbCFRpbfMnwOShM=" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/X7_2102KKNBO9BYh6TyrbCfzfSo=" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/org/firstinspires/ftc/teamcode/FTC_TeleOp.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/org/firstinspires/ftc/teamcode/FTC_TeleOp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.class" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/24/org/firstinspires/ftc/teamcode/FTC_TeleOp.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/24/org/firstinspires/ftc/teamcode/FTC_TeleOp.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/24/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexBuilder/debug/24/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/build/outputs/apk/debug/TeamCode-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -77,12 +47,12 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="FTC_TeleOp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+            <state relative-caret-position="1470">
+              <caret line="105" column="53" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -90,8 +60,8 @@
       <file leaf-file-name="FTC_TeleOp_NoLimit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="-273">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
             </state>
           </provider>
         </entry>
@@ -3420,7 +3390,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3443,8 +3414,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3588,33 +3558,34 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" visible="true" weight="0.32948717" />
-      <window_info anchor="bottom" id="Android Profiler" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info id="Build Variants" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32948717" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" order="2" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Logcat" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Logcat" order="7" />
       <window_info id="Captures" order="2" weight="0.25" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
-      <window_info anchor="bottom" id="Build" weight="0.32948717" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18168813" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.32948717" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Gradle" />
+      <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -3624,6 +3595,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -3631,10 +3609,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp_NoLimit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-273">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTC_TeleOp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+        <state relative-caret-position="1470">
+          <caret line="105" column="53" selection-start-line="105" selection-start-column="53" selection-end-line="105" selection-end-column="53" />
         </state>
       </provider>
     </entry>

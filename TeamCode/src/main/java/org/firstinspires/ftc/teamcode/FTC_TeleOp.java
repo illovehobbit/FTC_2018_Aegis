@@ -19,6 +19,7 @@ public class FTC_TeleOp extends OpMode
 
     private double dumpPos;
     private final double dumpSpeed = 0.05;
+    private final double drivingSpeedScaling = 0.5;
 
     @Override
     public void init() {
@@ -99,10 +100,10 @@ public class FTC_TeleOp extends OpMode
         final double v4 = r * Math.cos(robotAngle) - rightX;
 
         //run each motor according to speed
-        leftFront.setPower(v1);
-        rightFront.setPower(v2);
-        leftBack.setPower(v3);
-        rightBack.setPower(v4);
+        leftFront.setPower  (v1 * drivingSpeedScaling);
+        rightFront.setPower (v2 * drivingSpeedScaling);
+        leftBack.setPower   (v3 * drivingSpeedScaling);
+        rightBack.setPower  (v4 * drivingSpeedScaling);
 
         // ------------------ mast lift control -------------------
 
@@ -128,29 +129,31 @@ public class FTC_TeleOp extends OpMode
         dumpServo.setPosition(dumpPos);
 
         // ------------------ back motor control -------------------
-        int armPos = armMotor.getCurrentPosition();
+        int frontJointPos = armMotor.getCurrentPosition();
+        final double frontPower = Range.clip(gamepad2.left_stick_x, -0.25, 0.25);
 
-        if (gamepad2.left_stick_y < 0 && armPos > 20)
-            armMotor.setPower(-0.25);
-        else if (gamepad2.left_stick_y > 0 && armPos < 4600)
-            armMotor.setPower(0.25);
+        if (gamepad2.left_stick_y < 0 && frontJointPos < 4500)
+            armMotor.setPower(frontPower);
+        else if (gamepad2.left_stick_y > 0 && frontJointPos > 40)
+            armMotor.setPower(frontPower);
         else
             armMotor.setPower(0);
 
         // ------------------ front motor control -----------------
-        int jointPos = jointMotor.getCurrentPosition();
+        int backJointPos = jointMotor.getCurrentPosition();
+        final double backPower = Range.clip(gamepad2.right_stick_y, -0.25, 0.25);
 
-        if (gamepad2.right_stick_y < 0 && jointPos > 20)
-            jointMotor.setPower(-0.25);
-        else if (gamepad2.right_stick_y > 0 && jointPos < 5400)
-            jointMotor.setPower(0.25);
+        if (backPower < 0 && backJointPos < 5400)
+            jointMotor.setPower(backPower);
+        else if (backPower > 0 && backJointPos > 40)
+            jointMotor.setPower(backPower);
         else
             jointMotor.setPower(0);
 
         // --------------- collector motor control ----------------
-        if (gamepad2.b && !gamepad2.x) {
+        if (gamepad2.right_bumper && !gamepad2.left_bumper) {
             collectorMotor.setPower(1);
-        }else if (gamepad2.x && !gamepad2.b){
+        }else if (gamepad2.left_bumper && !gamepad2.right_bumper){
             collectorMotor.setPower(-1);
         }else{
             collectorMotor.setPower(0);
@@ -162,8 +165,8 @@ public class FTC_TeleOp extends OpMode
             ex.printStackTrace();
         }
 
-        telemetry.addData("Arm Encoder: ", armPos);
-        telemetry.addData("Joint Encoder", jointPos);
+        telemetry.addData("Front Joint Encoder: ", frontJointPos);
+        telemetry.addData("Back Joint Encoder", backJointPos);
         telemetry.addData("Mast Lift Encoder: ", liftPos);
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.update();

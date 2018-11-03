@@ -103,8 +103,6 @@ public class FTC_TeleOp_NoLimit extends OpMode
         boolean up = gamepad1.right_bumper;
         boolean down = gamepad1.left_bumper;
 
-        int liftPos = mastLift.getCurrentPosition();
-
         if (down && !up)
             mastLift.setPower(1);
         else if (up && !down)
