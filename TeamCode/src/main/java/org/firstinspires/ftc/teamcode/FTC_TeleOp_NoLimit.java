@@ -14,8 +14,7 @@ public class FTC_TeleOp_NoLimit extends OpMode
 {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftFront, rightFront, leftBack, rightBack, mastLift = null;
-    private DcMotor armMotor, jointMotor, collectorMotor = null;
-    private Servo dumpServo = null;
+    private DcMotor armMotor, jointMotor, collectorMotor, dumpMotor = null;
 
     private double dumpPos;
     private final double dumpSpeed = 0.05;
@@ -60,9 +59,8 @@ public class FTC_TeleOp_NoLimit extends OpMode
         collectorMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Init Servo
-        dumpServo = hardwareMap.get(Servo.class, "dump_servo");
-        dumpPos = 0;
-        dumpServo.setPosition(dumpPos);
+        dumpMotor = hardwareMap.get(DcMotor.class, "dump_motor");
+        dumpMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);     // set braking behavior
 
         // Update telemetry
         telemetry.addData("Status", "Initialized");
@@ -111,13 +109,12 @@ public class FTC_TeleOp_NoLimit extends OpMode
             mastLift.setPower(0);
 
         // ------------------ dump servo control ------------------
-
-        if (gamepad1.y && dumpPos < 1)
-            dumpPos += dumpSpeed;
-        else if (gamepad1.a && dumpPos > 0)
-            dumpPos -= dumpSpeed;
-
-        dumpServo.setPosition(dumpPos);
+        if (gamepad1.y)
+            dumpMotor.setPower(+0.50);
+        else if (gamepad1.a)
+            dumpMotor.setPower(-0.50);
+        else
+            dumpMotor.setPower(0);
 
         // ------------------ back motor control -------------------
         armMotor.setPower(gamepad2.left_stick_y);

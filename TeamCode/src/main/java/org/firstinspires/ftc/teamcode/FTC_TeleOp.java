@@ -14,8 +14,7 @@ public class FTC_TeleOp extends OpMode
 {
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftFront, rightFront, leftBack, rightBack, mastLift = null;
-    private DcMotor armMotor, jointMotor, collectorMotor = null;
-    private Servo dumpServo = null;
+    private DcMotor armMotor, jointMotor, collectorMotor, dumpMotor = null;
 
     private double dumpPos;
     private final double dumpSpeed = 0.05;
@@ -66,10 +65,9 @@ public class FTC_TeleOp extends OpMode
         collectorMotor = hardwareMap.get(DcMotor.class, "collector_motor");
         collectorMotor.setDirection(DcMotor.Direction.FORWARD);
 
-        // Init Servo
-        dumpServo = hardwareMap.get(Servo.class, "dump_servo");
-        dumpPos = 0;
-        dumpServo.setPosition(dumpPos);
+        // Init dump motor
+        dumpMotor = hardwareMap.get(DcMotor.class, "dump_motor");
+        dumpMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);     // set braking behavior
 
         // Update telemetry
         telemetry.addData("Status", "Initialized");
@@ -120,35 +118,39 @@ public class FTC_TeleOp extends OpMode
             mastLift.setPower(0);
 
         // ------------------ dump servo control ------------------
-
-        if (gamepad1.y && dumpPos < 1)
-            dumpPos += dumpSpeed;
-        else if (gamepad1.a && dumpPos > 0)
-            dumpPos -= dumpSpeed;
-
-        dumpServo.setPosition(dumpPos);
-
-        // ------------------ back motor control -------------------
-        int frontJointPos = armMotor.getCurrentPosition();
-        final double frontPower = Range.clip(gamepad2.left_stick_x, -0.25, 0.25);
-
-        if (gamepad2.left_stick_y < 0 && frontJointPos < 4500)
-            armMotor.setPower(frontPower);
-        else if (gamepad2.left_stick_y > 0 && frontJointPos > 40)
-            armMotor.setPower(frontPower);
+        int dumpPosition = dumpMotor.getCurrentPosition();
+        if (gamepad1.y && dumpPosition < 750)
+            dumpMotor.setPower(0.45);
+        else if (gamepad1.y && dumpPosition < 780 && dumpPosition > 770)
+            dumpMotor.setPower(0.01);
+        else if (gamepad1.a && dumpPosition > 560)
+            dumpMotor.setPower(-0.20);
+        else if (gamepad1.a && dumpPosition < 80 && dumpPosition > 10)
+            dumpMotor.setPower(-0.01);
         else
-            armMotor.setPower(0);
+            dumpMotor.setPower(0);
 
-        // ------------------ front motor control -----------------
-        int backJointPos = jointMotor.getCurrentPosition();
-        final double backPower = Range.clip(gamepad2.right_stick_y, -0.25, 0.25);
+        // ------------------ front motor control -------------------
+        int frontJointPos = jointMotor.getCurrentPosition();
+        final double frontPower = Range.scale(gamepad2.right_stick_y, -1, 1, -0.25, 0.25);
 
-        if (backPower < 0 && backJointPos < 5400)
-            jointMotor.setPower(backPower);
-        else if (backPower > 0 && backJointPos > 40)
-            jointMotor.setPower(backPower);
+        if (frontPower < 0 && frontJointPos < 5300)
+            jointMotor.setPower(-frontPower);
+        else if (frontPower > 0 && frontJointPos > 40)
+            jointMotor.setPower(-frontPower);
         else
             jointMotor.setPower(0);
+
+        // ------------------ back motor control -----------------
+        int backJointPos = armMotor.getCurrentPosition();
+        final double backPower = Range.scale(gamepad2.left_stick_y, -1, 1, -0.25, 0.25);
+
+        if (backPower < 0 && backJointPos < 5400)
+            armMotor.setPower(-backPower);
+        else if (backPower > 0 && backJointPos > 40)
+            armMotor.setPower(-backPower);
+        else
+            armMotor.setPower(0);
 
         // --------------- collector motor control ----------------
         if (gamepad2.right_bumper && !gamepad2.left_bumper) {
@@ -168,6 +170,7 @@ public class FTC_TeleOp extends OpMode
         telemetry.addData("Front Joint Encoder: ", frontJointPos);
         telemetry.addData("Back Joint Encoder", backJointPos);
         telemetry.addData("Mast Lift Encoder: ", liftPos);
+        telemetry.addData("Dump Position", dumpPosition);
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.update();
     }
