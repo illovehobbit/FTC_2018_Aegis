@@ -16,8 +16,9 @@ public class FTC_TeleOp_NoLimit extends OpMode
     private DcMotor leftFront, rightFront, leftBack, rightBack, mastLift = null;
     private DcMotor armMotor, jointMotor, collectorMotor, dumpMotor = null;
 
-    private double dumpPos;
     private final double dumpSpeed = 0.05;
+    private final double drivingSpeedScaling = 0.5;
+
 
     @Override
     public void init() {
@@ -91,10 +92,10 @@ public class FTC_TeleOp_NoLimit extends OpMode
         final double v4 = r * Math.cos(robotAngle) - rightX;
 
         //run each motor according to speed
-        leftFront.setPower(v1);
-        rightFront.setPower(v2);
-        leftBack.setPower(v3);
-        rightBack.setPower(v4);
+        leftFront.setPower  (v1 * drivingSpeedScaling);
+        rightFront.setPower (v2 * drivingSpeedScaling);
+        leftBack.setPower   (v3 * drivingSpeedScaling);
+        rightBack.setPower  (v4 * drivingSpeedScaling);
 
         // ------------------ mast lift control -------------------
 
@@ -116,16 +117,32 @@ public class FTC_TeleOp_NoLimit extends OpMode
         else
             dumpMotor.setPower(0);
 
-        // ------------------ back motor control -------------------
-        armMotor.setPower(gamepad2.left_stick_y);
+        // ------------------ front motor control -------------------
+        int frontJointPos = jointMotor.getCurrentPosition();
+        final double frontPower = Range.scale(gamepad2.right_stick_y, -1, 1, -0.25, 0.25);
 
-        // ------------------ front motor control -----------------
-        jointMotor.setPower(gamepad2.right_stick_y);
+        if (frontPower < 0)
+            jointMotor.setPower(-frontPower);
+        else if (frontPower > 0)
+            jointMotor.setPower(-frontPower);
+        else
+            jointMotor.setPower(0);
+
+        // ------------------ back motor control -----------------
+        int backJointPos = armMotor.getCurrentPosition();
+        final double backPower = Range.scale(gamepad2.left_stick_y, -1, 1, -0.25, 0.25);
+
+        if (backPower < 0)
+            armMotor.setPower(-backPower);
+        else if (backPower > 0)
+            armMotor.setPower(-backPower);
+        else
+            armMotor.setPower(0);
 
         // --------------- collector motor control ----------------
-        if (gamepad2.b && !gamepad2.x) {
+        if (gamepad2.right_bumper && !gamepad2.left_bumper) {
             collectorMotor.setPower(1);
-        }else if (gamepad2.x && !gamepad2.b){
+        }else if (gamepad2.left_bumper && !gamepad2.right_bumper){
             collectorMotor.setPower(-1);
         }else{
             collectorMotor.setPower(0);

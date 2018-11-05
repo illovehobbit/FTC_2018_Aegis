@@ -125,8 +125,8 @@ public class FTC_TeleOp extends OpMode
             dumpMotor.setPower(0.01);
         else if (gamepad1.a && dumpPosition > 560)
             dumpMotor.setPower(-0.20);
-        else if (gamepad1.a && dumpPosition < 80 && dumpPosition > 10)
-            dumpMotor.setPower(-0.01);
+        else if (gamepad1.a && dumpPosition < 135 && dumpPosition > 50)
+            dumpMotor.setPower(-0.005);
         else
             dumpMotor.setPower(0);
 
