@@ -1,3 +1,10 @@
+/*
+ * 201-2019 Deerfield Academy FTC Robot Code
+ * By Will Song '20 & Neil Nie '19
+ * (c) Deerfield Academy, All Rights Reserved
+ * Contact: ynie19@deerfield.edu
+ *          jsong20@deerfield.edu
+ */
 
 package org.firstinspires.ftc.teamcode;
 
@@ -109,11 +116,16 @@ public class FTC_TeleOp_NoLimit extends OpMode
         else
             mastLift.setPower(0);
 
-        // ------------------ dump servo control ------------------
-        if (gamepad1.y)
-            dumpMotor.setPower(+0.50);
-        else if (gamepad1.a)
-            dumpMotor.setPower(-0.50);
+        // ------------------ dump motor control -------------------
+        int dumpPosition = dumpMotor.getCurrentPosition();
+        if (gamepad1.y && dumpPosition < 750)
+            dumpMotor.setPower(0.45);
+        else if (gamepad1.y && dumpPosition < 780 && dumpPosition > 770)
+            dumpMotor.setPower(0.01);
+        else if (gamepad1.a && dumpPosition > 560)
+            dumpMotor.setPower(-0.20);
+        else if (gamepad1.a && dumpPosition < 135 && dumpPosition > 50)
+            dumpMotor.setPower(-0.005);
         else
             dumpMotor.setPower(0);
 
