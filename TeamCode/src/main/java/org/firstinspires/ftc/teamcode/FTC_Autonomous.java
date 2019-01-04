@@ -1,3 +1,5 @@
+//
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -14,6 +16,8 @@ public class FTC_Autonomous extends OpMode{
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftFront, rightFront, leftBack, rightBack, mastLift = null;
     private DcMotor armMotor, jointMotor = null;
+
+    private double left_stick_y, time = 0;
 
     private boolean unfolded;
 
@@ -93,20 +97,73 @@ public class FTC_Autonomous extends OpMode{
         else {
             armMotor.setPower(0);
             unfolded = true;
+            left_stick_y = -0.15;
         }
 
+
+        // -------------------- Mecanum driving --------------------
+        //read input values for driving (Gamepad 1)
+
+        // 2.1 Lower
         if (unfolded){
 
             // ------------------ mast lift control -------------------
             int liftPos = mastLift.getCurrentPosition();
 
-            if (liftPos > -13000)
+            if (liftPos > -12000) {
                 mastLift.setPower(-1);
-            else
+
+                double r = Math.hypot(0, left_stick_y);
+                double robotAngle = Math.atan2(left_stick_y, 0) - Math.PI/4;
+                double rightX = -0;
+
+                //calculate velocities of each wheel
+                final double v1 = r * Math.cos(robotAngle) + rightX;
+                final double v2 = r * Math.sin(robotAngle) - rightX;
+                final double v3 = r * Math.sin(robotAngle) + rightX;
+                final double v4 = r * Math.cos(robotAngle) - rightX;
+
+                //run each motor according to speed
+                leftFront.setPower  (v1);
+                rightFront.setPower (v2);
+                leftBack.setPower   (v3);
+                rightBack.setPower  (v4);
+            }
+            else {
                 mastLift.setPower(0);
+
+                leftFront.setPower  (0);
+                rightFront.setPower (0);
+                leftBack.setPower   (0);
+                rightBack.setPower  (0);
+
+                time = runtime.time();
+            }
+
         }
 
-        // 2.1 Lower
+        if ((runtime.time() - time) < 3e+9){
+
+            double r = Math.hypot(-0.20, 0);
+            double robotAngle = Math.atan2(0, -0.20) - Math.PI/4;
+            double rightX = -0;
+
+            //calculate velocities of each wheel
+            final double v1 = r * Math.cos(robotAngle) + rightX;
+            final double v2 = r * Math.sin(robotAngle) - rightX;
+            final double v3 = r * Math.sin(robotAngle) + rightX;
+            final double v4 = r * Math.cos(robotAngle) - rightX;
+
+            //run each motor according to speed
+            leftFront.setPower  (v1);
+            rightFront.setPower (v2);
+            leftBack.setPower   (v3);
+            rightBack.setPower  (v4);
+        }
+
+        telemetry.addData("Status", "Run Time: " + runtime.toString());
+        telemetry.update();
+
         // 2.2 Run motor
 
         // Translate Left
