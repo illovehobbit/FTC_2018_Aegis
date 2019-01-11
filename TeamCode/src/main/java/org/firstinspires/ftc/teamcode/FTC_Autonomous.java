@@ -39,6 +39,11 @@ public class FTC_Autonomous extends OpMode{
         leftBack  = hardwareMap.get(DcMotor.class, "left_back");
         rightBack = hardwareMap.get(DcMotor.class, "right_back");
 
+        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         // Set direction for wheel drive motors
         leftFront.setDirection(DcMotor.Direction.FORWARD);
         rightFront.setDirection(DcMotor.Direction.REVERSE);
@@ -129,6 +134,8 @@ public class FTC_Autonomous extends OpMode{
                 //run each motor according to speed
                 setMotorPower(v1, v2, v3, v4);
             }
+            // =====================================================================================
+            // 2.2 Move sideways
             else if (!allClear){
 
                 // stop all motors
@@ -141,7 +148,7 @@ public class FTC_Autonomous extends OpMode{
                 }
                 // move side ways
                 double current_time = runtime.time();
-                if ((current_time - time) < 1){
+                if ((current_time - time) < 0.60){
                     telemetry.addData("moving sideways: ", (current_time - time));
                     double r = Math.hypot(-0.5, 0);
                     double robotAngle = Math.atan2(0, -0.5) - Math.PI/4;
@@ -174,10 +181,10 @@ public class FTC_Autonomous extends OpMode{
             }
 
             double current_time = runtime_2.time();
-            if ((current_time - time_2) < 5){
+            if ((current_time - time_2) < 4){
                 telemetry.addData("time: ", (current_time - time_2));
-                double r = Math.hypot(0, -0.30);
-                double robotAngle = Math.atan2(-0.30, 0) - Math.PI/4;
+                double r = Math.hypot(0, -1.0);
+                double robotAngle = Math.atan2(-1.0, 0) - Math.PI/4;
                 double rightX = -0;
 
                 //calculate velocities of each wheel
