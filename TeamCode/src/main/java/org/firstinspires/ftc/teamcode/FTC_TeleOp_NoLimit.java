@@ -23,8 +23,8 @@ public class FTC_TeleOp_NoLimit extends OpMode
     private DcMotor leftFront, rightFront, leftBack, rightBack, mastLift = null;
     private DcMotor armMotor, jointMotor, collectorMotor, dumpMotor = null;
 
-    private final double dumpSpeed = 0.05;
-    private final double drivingSpeedScaling = 0.80;
+    private final double dumpSpeed = 0.08;
+    private final double drivingSpeedScaling = 1.00;
 
 
     @Override
@@ -148,8 +148,7 @@ public class FTC_TeleOp_NoLimit extends OpMode
             jointMotor.setPower(0);
 
         // ------------------ back motor control -----------------
-        int backJointPos = armMotor.getCurrentPosition();
-        final double backPower = Range.scale(gamepad2.left_stick_y, -1, 1, -0.25, 0.25);
+        final double backPower = Range.scale(gamepad2.left_stick_y, -1, 1, -0.75, 0.75);
 
         if (backPower < 0)
             armMotor.setPower(-backPower);
