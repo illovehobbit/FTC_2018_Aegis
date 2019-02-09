@@ -155,7 +155,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
                 }
                 // move side ways
                 double current_time = runtime.time();
-                if ((current_time - time) < 0.50){
+                if ((current_time - time) < 0.80){
                     telemetry.addData("moving sideways: ", (current_time - time));
                     double r = Math.hypot(-0.66, 0);
                     double robotAngle = Math.atan2(0, -0.66) - Math.PI/4;
@@ -170,7 +170,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
                     //run each motor according to speed
                     setMotorPower(v1, v2, v3, v4);
 
-                }else if ((current_time - time) > 0.50 && (current_time - time) < 0.90) {
+                }else if ((current_time - time) > 0.80 && (current_time - time) < 1.20) {
 
                     double r = Math.hypot(0.5, 0);
                     double robotAngle = Math.atan2(0, 0.5) - Math.PI / 4;
@@ -202,8 +202,8 @@ public class FTC_Autonomous_Claiming extends OpMode{
             }
 
             double current_time = runtime_2.time();
-            // move for **4** seconds
-            if ((current_time - time_2) < 2.5){
+            // move for **2** seconds
+            if ((current_time - time_2) < 1.0){
                 telemetry.addData("time: ", (current_time - time_2));
                 double r = Math.hypot(0, -0.30);
                 double robotAngle = Math.atan2(-0.30, 0) - Math.PI/4;

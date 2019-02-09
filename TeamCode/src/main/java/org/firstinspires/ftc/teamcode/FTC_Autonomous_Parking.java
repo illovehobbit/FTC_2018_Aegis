@@ -152,7 +152,7 @@ public class FTC_Autonomous_Parking extends OpMode{
                 }
                 // move side ways
                 double current_time = runtime.time();
-                if ((current_time - time) < 0.50){
+                if ((current_time - time) < 0.80){
 
                     armMotor.setPower(0);
 
@@ -170,7 +170,7 @@ public class FTC_Autonomous_Parking extends OpMode{
                     //run each motor according to speed
                     setMotorPower(v1, v2, v3, v4);
 
-                }else if ((current_time - time) > 0.50 && (current_time - time) < 0.90) {
+                }else if ((current_time - time) > 0.80 && (current_time - time) < 1.20) {
 
                     armMotor.setPower(0);
 
