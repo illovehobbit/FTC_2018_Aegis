@@ -123,7 +123,8 @@ public class FTC_Autonomous_Claiming extends OpMode{
             // ------------------ mast lift control -------------------
             int liftPos = mastLift.getCurrentPosition();
 
-            if (liftPos > -15200) {
+            if (liftPos > -16100) {
+
                 mastLift.setPower(-1);
 
                 double r = Math.hypot(0, left_stick_y);
@@ -153,7 +154,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
                 }
                 // move side ways
                 double current_time = runtime.time();
-                if ((current_time - time) < 1.20){
+                if ((current_time - time) < 0.40){
                     telemetry.addData("moving sideways: ", (current_time - time));
                     double r = Math.hypot(-0.66, 0);
                     double robotAngle = Math.atan2(0, -0.66) - Math.PI/4;
@@ -168,7 +169,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
                     //run each motor according to speed
                     setMotorPower(v1, v2, v3, v4);
 
-                }else if ((current_time - time) > 1.20 && (current_time - time) < 1.80) {
+                }else if ((current_time - time) > 0.40 && (current_time - time) < 0.70) {
 
                     double r = Math.hypot(0.5, 0);
                     double robotAngle = Math.atan2(0, 0.5) - Math.PI / 4;
@@ -234,7 +235,6 @@ public class FTC_Autonomous_Claiming extends OpMode{
         }
 
         telemetry.update();
-        telemetry.addData("pos", frontJointPos);
 
         // 2.2 Run motor
 

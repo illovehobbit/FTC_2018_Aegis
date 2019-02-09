@@ -17,13 +17,15 @@ public class FTC_Autonomous_Parking extends OpMode{
     // Declare OpMode members.
     private ElapsedTime runtime = null;
     private ElapsedTime runtime_2 = null;
+    private ElapsedTime runtime_3 = null;
     private DcMotor leftFront, rightFront, leftBack, rightBack, mastLift = null;
     private DcMotor armMotor, jointMotor = null;
 
-    private double left_stick_y, time, time_2 = 0;
+    private double left_stick_y, time, time_2, time_3 = 0;
 
     private boolean unfolded;
     private boolean allClear = false;
+    private boolean readyToPark = false;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -101,12 +103,11 @@ public class FTC_Autonomous_Parking extends OpMode{
         // =========================================================================================
         // back motor control
         int backJointPos = armMotor.getCurrentPosition();
-        final double backPower = -0.30;
+        final double backPower = -0.50;
 
         if (backJointPos < 2000)
             armMotor.setPower(-backPower);
         else {
-            armMotor.setPower(0);
             unfolded = true;
             left_stick_y = -0.07;
         }
@@ -118,7 +119,10 @@ public class FTC_Autonomous_Parking extends OpMode{
             // ------------------ mast lift control -------------------
             int liftPos = mastLift.getCurrentPosition();
 
-            if (liftPos > -15200) {
+            if (liftPos > -16100) {
+
+                armMotor.setPower(0);
+
                 mastLift.setPower(-1);
 
                 double r = Math.hypot(0, left_stick_y);
@@ -136,19 +140,22 @@ public class FTC_Autonomous_Parking extends OpMode{
             }
             // =====================================================================================
             // 2.2 Move sideways
-            else if (!allClear){
+            else if (!allClear) {
 
                 // stop all motors
                 mastLift.setPower(0);
 
                 // initialize timer
-                if (runtime == null){
+                if (runtime == null) {
                     runtime = new ElapsedTime();
                     time = runtime.time();
                 }
                 // move side ways
                 double current_time = runtime.time();
-                if ((current_time - time) < 0.80){
+                if ((current_time - time) < 0.40){
+
+                    armMotor.setPower(0);
+
                     telemetry.addData("moving sideways: ", (current_time - time));
                     double r = Math.hypot(-0.5, 0);
                     double robotAngle = Math.atan2(0, -0.5) - Math.PI/4;
@@ -163,7 +170,9 @@ public class FTC_Autonomous_Parking extends OpMode{
                     //run each motor according to speed
                     setMotorPower(v1, v2, v3, v4);
 
-                }else if ((current_time - time) > 0.80 && (current_time - time) < 1.20) {
+                }else if ((current_time - time) > 0.40 && (current_time - time) < 0.70) {
+
+                    armMotor.setPower(0);
 
                     double r = Math.hypot(0.5, 0);
                     double robotAngle = Math.atan2(0, 0.5) - Math.PI / 4;
@@ -195,10 +204,13 @@ public class FTC_Autonomous_Parking extends OpMode{
             }
 
             double current_time = runtime_2.time();
-            if ((current_time - time_2) < 5.5){
+            if ((current_time - time_2) < 7){
+
+                armMotor.setPower(0);
+
                 telemetry.addData("time: ", (current_time - time_2));
-                double r = Math.hypot(0, -1.0);
-                double robotAngle = Math.atan2(-1.0, 0) - Math.PI/4;
+                double r = Math.hypot(0, -0.5);
+                double robotAngle = Math.atan2(-0.5, 0) - Math.PI/4;
                 double rightX = -0;
 
                 //calculate velocities of each wheel
@@ -210,17 +222,38 @@ public class FTC_Autonomous_Parking extends OpMode{
                 //run each motor according to speed
                 setMotorPower(v1, v2, v3, v4);
 
-            }else
+            }else{
                 stopMotors();
+                readyToPark = true;
+            }
         }
 
-        telemetry.update();
+        // Move arm and joint out parking sequence =================================================
+        if (readyToPark){
+            if (runtime_3 == null){
+                runtime_3 = new ElapsedTime();
+                time_3 = runtime_3.time();
+            }
 
-        // 2.2 Run motor
+            // moving joint motor
+            int frontJointPos = jointMotor.getCurrentPosition();
+            if (frontJointPos < 5000){
+                jointMotor.setPower(1.0);
+            }else{
+                jointMotor.setPower(0);
+            }
 
-        // Translate Left
+            // moving arm motor
+            double current_time = runtime_3.time();
+            if ((current_time - time_3) < 0.5){
+                armMotor.setPower(0.95);
+            }else{
+                stopMotors();
+                armMotor.setPower(0);
+            }
 
-        // Move Forwards
+            telemetry.update();
+        }
     }
 
     private void stopMotors() {
