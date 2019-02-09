@@ -17,10 +17,11 @@ public class FTC_Autonomous_Claiming extends OpMode{
     // Declare OpMode members.
     private ElapsedTime runtime = null;
     private ElapsedTime runtime_2 = null;
+    private ElapsedTime runtime_3 = null;
     private DcMotor leftFront, rightFront, leftBack, collectorMotor, rightBack, mastLift = null;
     private DcMotor armMotor, jointMotor = null;
 
-    private double left_stick_y, time, time_2 = 0;
+    private double left_stick_y, time, time_2, time_3 = 0;
 
     private boolean unfolded;
     private boolean allClear = false;
@@ -40,10 +41,10 @@ public class FTC_Autonomous_Claiming extends OpMode{
         leftBack  = hardwareMap.get(DcMotor.class, "left_back");
         rightBack = hardwareMap.get(DcMotor.class, "right_back");
 
-        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Set direction for wheel drive motors
         leftFront.setDirection(DcMotor.Direction.FORWARD);
@@ -123,7 +124,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
             // ------------------ mast lift control -------------------
             int liftPos = mastLift.getCurrentPosition();
 
-            if (liftPos > -16100) {
+            if (liftPos > -13400) {
 
                 mastLift.setPower(-1);
 
@@ -154,7 +155,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
                 }
                 // move side ways
                 double current_time = runtime.time();
-                if ((current_time - time) < 0.40){
+                if ((current_time - time) < 0.50){
                     telemetry.addData("moving sideways: ", (current_time - time));
                     double r = Math.hypot(-0.66, 0);
                     double robotAngle = Math.atan2(0, -0.66) - Math.PI/4;
@@ -169,7 +170,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
                     //run each motor according to speed
                     setMotorPower(v1, v2, v3, v4);
 
-                }else if ((current_time - time) > 0.40 && (current_time - time) < 0.70) {
+                }else if ((current_time - time) > 0.50 && (current_time - time) < 0.90) {
 
                     double r = Math.hypot(0.5, 0);
                     double robotAngle = Math.atan2(0, 0.5) - Math.PI / 4;
@@ -202,10 +203,10 @@ public class FTC_Autonomous_Claiming extends OpMode{
 
             double current_time = runtime_2.time();
             // move for **4** seconds
-            if ((current_time - time_2) < 7){
+            if ((current_time - time_2) < 2.5){
                 telemetry.addData("time: ", (current_time - time_2));
-                double r = Math.hypot(0, -0.40);
-                double robotAngle = Math.atan2(-0.40, 0) - Math.PI/4;
+                double r = Math.hypot(0, -0.30);
+                double robotAngle = Math.atan2(-0.30, 0) - Math.PI/4;
                 double rightX = -0;
 
                 //calculate velocities of each wheel
@@ -230,7 +231,17 @@ public class FTC_Autonomous_Claiming extends OpMode{
                 collectorMotor.setPower(0);
             }else{
                 jointMotor.setPower(0);
-                collectorMotor.setPower(-1);
+                if (runtime_3 == null){
+                    runtime_3 = new ElapsedTime();
+                    time_3 = runtime_3.time();
+                }
+                double current_time = runtime_3.time();
+
+                if ((current_time - time_3) < 3){
+                    collectorMotor.setPower(-1);
+                }else{
+                    collectorMotor.setPower(0);
+                }
             }
         }
 

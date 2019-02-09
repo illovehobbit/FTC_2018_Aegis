@@ -43,10 +43,10 @@ public class FTC_TeleOp_NoLimit extends OpMode
         rightBack.setDirection(DcMotor.Direction.REVERSE);
 
         // enable encoder driving
-        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // stop all motors
         leftFront.setPower(0);
@@ -173,6 +173,8 @@ public class FTC_TeleOp_NoLimit extends OpMode
         }
 
         telemetry.addData("Status", "Run Time: " + runtime.toString());
+        telemetry.addData("lift", "Encoder: " + mastLift.getCurrentPosition());
+
         telemetry.update();
     }
 
