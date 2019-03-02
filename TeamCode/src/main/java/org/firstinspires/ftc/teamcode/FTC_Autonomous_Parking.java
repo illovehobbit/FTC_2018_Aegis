@@ -109,7 +109,7 @@ public class FTC_Autonomous_Parking extends OpMode{
             armMotor.setPower(-backPower);
         else {
             unfolded = true;
-            left_stick_y = -0.00;
+            left_stick_y = -0.05;
         }
 
         // =========================================================================================
@@ -204,7 +204,7 @@ public class FTC_Autonomous_Parking extends OpMode{
             }
 
             double current_time = runtime_2.time();
-            if ((current_time - time_2) < 2.5){
+            if ((current_time - time_2) < 5.0){
 
                 armMotor.setPower(0);
 
@@ -233,7 +233,7 @@ public class FTC_Autonomous_Parking extends OpMode{
 
             // moving joint motor
             int frontJointPos = jointMotor.getCurrentPosition();
-            if (frontJointPos < 4000){
+            if (frontJointPos < 4500){
                 jointMotor.setPower(1.0);
             }else{
                 jointMotor.setPower(0);

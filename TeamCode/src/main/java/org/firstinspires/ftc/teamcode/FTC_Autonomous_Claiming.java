@@ -114,7 +114,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
         else {
             armMotor.setPower(0);
             unfolded = true;
-            left_stick_y = -0.07;
+            left_stick_y = -0.05;
         }
 
         // =========================================================================================
@@ -203,7 +203,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
 
             double current_time = runtime_2.time();
             // move for **2** seconds
-            if ((current_time - time_2) < 1.0){
+            if ((current_time - time_2) < 2.5){
                 telemetry.addData("time: ", (current_time - time_2));
                 double r = Math.hypot(0, -0.30);
                 double robotAngle = Math.atan2(-0.30, 0) - Math.PI/4;
@@ -226,7 +226,7 @@ public class FTC_Autonomous_Claiming extends OpMode{
 
         int frontJointPos = jointMotor.getCurrentPosition();
         if (readyToClaim) {
-            if (frontJointPos < 5100){
+            if (frontJointPos < 5600){
                 jointMotor.setPower(1.0);
                 collectorMotor.setPower(0);
             }else{
